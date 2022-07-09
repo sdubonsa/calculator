@@ -25,12 +25,33 @@ enterButton.addEventListener('click', displayResults)
 function add() {
     let result = FIRST_NUM + SECOND_NUM
     FIRST_NUM = result;
+    SECOND_NUM = ''
 
     return result
 }
 
-function subtract(a ,b) {
-    return a - b
+function subtract() {
+    let result = FIRST_NUM - SECOND_NUM
+    FIRST_NUM = result;
+    SECOND_NUM = ''
+
+    return result
+}
+
+function divide() {
+    let result = FIRST_NUM / SECOND_NUM
+    FIRST_NUM = result;
+    SECOND_NUM = ''
+
+    return result
+}
+
+function multiply() {
+    let result = FIRST_NUM * SECOND_NUM
+    FIRST_NUM = result;
+    SECOND_NUM = ''
+
+    return result
 }
 
 function setNums(number) {
@@ -54,6 +75,15 @@ function evalSecelection(selection) {
         case 'add':
             EVAL_SELECTION = 'add'
             break
+        case 'subtract':
+            EVAL_SELECTION = 'subtract'
+            break
+        case 'divide':
+            EVAL_SELECTION = 'divide'
+            break
+        case 'multiply':
+            EVAL_SELECTION ='multiply'
+            break                
         default:
             break
     }
@@ -67,5 +97,15 @@ function displayResults() {
     switch(EVAL_SELECTION) {
         case 'add':
             display.innerHTML = add()
+            break
+        case 'subtract':
+            display.innerHTML = subtract()
+            break
+        case 'divide':
+            display.innerHTML = divide()
+            break
+        case 'multiply':
+            display.innerHTML = multiply()
+            break
     }
 }
