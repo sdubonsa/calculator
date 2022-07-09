@@ -1,8 +1,8 @@
 // JS-VARS
 let FIRST_NUM_END = true;
 let EVAL_SELECTION = ''
-let FIRST_NUM
-let SECOND_NUM
+let FIRST_NUM = ''
+let SECOND_NUM = ''
 
 // COMPONENTS
 const numButtons = document.querySelectorAll('.num-button')
@@ -23,7 +23,10 @@ enterButton.addEventListener('click', displayResults)
 
 // FUNCTIONS
 function add() {
-    return FIRST_NUM + SECOND_NUM
+    let result = FIRST_NUM + SECOND_NUM
+    FIRST_NUM = result;
+
+    return result
 }
 
 function subtract(a ,b) {
@@ -31,13 +34,17 @@ function subtract(a ,b) {
 }
 
 function setNums(number) {
+    let currNum
+
     if(FIRST_NUM_END) {
-        FIRST_NUM = parseInt(number)
+        currNum = '' + FIRST_NUM + number
+        FIRST_NUM = parseInt(currNum)
     } else {
-        SECOND_NUM = parseInt(number)
+        currNum = '' + SECOND_NUM + number
+        SECOND_NUM = parseInt(currNum)
     }
 
-    display.innerHTML = number
+    display.innerHTML = currNum
 }
 
 function evalSecelection(selection) {
