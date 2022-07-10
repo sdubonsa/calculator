@@ -1,16 +1,32 @@
-* {
-    border: 1px solid black;
+.calculator {
+    border: .30rem solid black;
+    height: 375px;
+    width: 300px;
+    padding: 1rem 1rem;
 }
 
-.calculator {
-    height: 700px;
-    width: 700px;
+.calc-display {
+    height: 75px;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid black;
+    margin-bottom: .30rem;
 }
 
 .calc-buttons {
+    gap: .30rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     width: auto;
+    height: 300px;
+}
+
+.button {
+    display: flex;
+    border: 1px solid black;
     cursor: pointer;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
 }
