@@ -8,6 +8,7 @@ let SECOND_NUM = ''
 const numButtons = document.querySelectorAll('.num-button')
 const evalButtons = document.querySelectorAll('.eval-button')
 const enterButton = document.querySelector('.enter-button')
+const clearButton = document.querySelector('.clear-button')
 
 const currDisplay = document.querySelector('.curr-display')
 const pastDisplay = document.querySelector('.past-display')
@@ -22,6 +23,7 @@ evalButtons.forEach(button => button.addEventListener('click', () => {
 }))
 
 enterButton.addEventListener('click', currDisplayResults)
+clearButton.addEventListener('click', clear)
 
 // FUNCTIONS
 function add() {
@@ -118,4 +120,13 @@ function currDisplayResults() {
             pastDisplay.innerHTML = FIRST_NUM
             break
     }
+}
+
+function clear() {
+    FIRST_NUM_END = true
+    EVAL_SELECTION = ''
+    FIRST_NUM = ''
+    SECOND_NUM = ''
+    currDisplay.innerHTML = 0
+    pastDisplay.innerHTML = ''
 }

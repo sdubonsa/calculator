@@ -12,7 +12,7 @@ body {
     background-color: #6E85B7;
     border: .30rem solid black;
     border-radius: 1rem;
-    height: 375px;
+    height: 425px;
     width: 300px;
     padding: 1rem 1rem;
 }
@@ -27,6 +27,30 @@ body {
     margin-bottom: .30rem;
     flex-direction: column;
     padding-right: .30rem;
+}
+
+.additional-buttons {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: .30rem;
+}
+
+.clear-button {
+    background-color: #A2C5EB;
+}
+
+.delete-button {
+    background-color: #FF7377;
+}
+
+.clear-button, .delete-button {
+    border: 1px solid black;
+    border-radius: .25rem;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .calc-buttons {
