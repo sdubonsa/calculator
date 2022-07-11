@@ -120,6 +120,8 @@ function currDisplayResults() {
             pastDisplay.innerHTML = FIRST_NUM
             break
     }
+
+    EVAL_SELECTION = ''
 }
 
 function clear() {
