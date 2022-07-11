@@ -8,7 +8,9 @@ let SECOND_NUM = ''
 const numButtons = document.querySelectorAll('.num-button')
 const evalButtons = document.querySelectorAll('.eval-button')
 const enterButton = document.querySelector('.enter-button')
-const display = document.querySelector('.calc-display')
+
+const currDisplay = document.querySelector('.curr-display')
+const pastDisplay = document.querySelector('.past-display')
 
 // EVENT HANDLERS
 numButtons.forEach(button => button.addEventListener('click', () => {
@@ -19,14 +21,14 @@ evalButtons.forEach(button => button.addEventListener('click', () => {
     evalSecelection(button.id)
 }))
 
-enterButton.addEventListener('click', displayResults)
+enterButton.addEventListener('click', currDisplayResults)
 
 // FUNCTIONS
 function add() {
     let result = FIRST_NUM + SECOND_NUM
     FIRST_NUM = result;
     SECOND_NUM = ''
-
+    
     return result
 }
 
@@ -65,7 +67,7 @@ function setNums(number) {
         SECOND_NUM = parseInt(currNum)
     }
 
-    display.innerHTML = currNum
+    currDisplay.innerHTML = currNum
 }
 
 function evalSecelection(selection) {
@@ -73,15 +75,19 @@ function evalSecelection(selection) {
 
     switch(selection) {
         case 'add':
+            pastDisplay.innerHTML = FIRST_NUM + ' +'
             EVAL_SELECTION = 'add'
             break
         case 'subtract':
+            pastDisplay.innerHTML = FIRST_NUM + ' -'
             EVAL_SELECTION = 'subtract'
             break
         case 'divide':
+            pastDisplay.innerHTML = FIRST_NUM + ' /'
             EVAL_SELECTION = 'divide'
             break
         case 'multiply':
+            pastDisplay.innerHTML = FIRST_NUM + ' *'
             EVAL_SELECTION ='multiply'
             break                
         default:
@@ -89,23 +95,27 @@ function evalSecelection(selection) {
     }
 }
 
-function displayResults() {
+function currDisplayResults() {
     if(FIRST_NUM === null || SECOND_NUM === null) {
-        display.innerHTML = 'N/A'
+        currDisplay.innerHTML = 'N/A'
     }
 
     switch(EVAL_SELECTION) {
         case 'add':
-            display.innerHTML = add()
+            currDisplay.innerHTML = add()
+            pastDisplay.innerHTML = FIRST_NUM
             break
         case 'subtract':
-            display.innerHTML = subtract()
+            currDisplay.innerHTML = subtract()
+            pastDisplay.innerHTML = FIRST_NUM
             break
         case 'divide':
-            display.innerHTML = divide()
+            currDisplay.innerHTML = divide()
+            pastDisplay.innerHTML = FIRST_NUM
             break
         case 'multiply':
-            display.innerHTML = multiply()
+            currDisplay.innerHTML = multiply()
+            pastDisplay.innerHTML = FIRST_NUM
             break
     }
 }
