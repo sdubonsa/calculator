@@ -120,9 +120,11 @@ function clearFunction() {
 
 function deleteFunction() {
     // CHECK WHICH NUM IT IS CURRENTLY ON
-    if(!FIRST_NUM_END) {
+    if(FIRST_NUM_END) {
         FIRST_NUM = FIRST_NUM.slice(0, -1)
+        currDisplay.innerHTML = FIRST_NUM
     } else {
         SECOND_NUM = SECOND_NUM.slice(0, -1)
+        currDisplay.innerHTML = SECOND_NUM
     }
 }
