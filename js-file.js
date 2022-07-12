@@ -10,6 +10,7 @@ const evalButtons = document.querySelectorAll('.eval-button')
 const enterButton = document.querySelector('.enter-button')
 const clearButton = document.querySelector('.clear-button')
 const deleteButton = document.querySelector('.delete-button')
+const dotButton = document.querySelector('.dot-button')
 
 const currDisplay = document.querySelector('.curr-display')
 const pastDisplay = document.querySelector('.past-display')
@@ -80,8 +81,8 @@ function evalSecelection(selection) {
 }
 
 function currDisplayResults() {
-    a = parseInt(FIRST_NUM)
-    b = parseInt(SECOND_NUM)
+    a = parseFloat(FIRST_NUM)
+    b = parseFloat(SECOND_NUM)
 
     SECOND_NUM = ''
 
