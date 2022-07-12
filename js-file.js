@@ -45,17 +45,13 @@ function multiply(a, b) {
 }
 
 function setNums(number) {
-    let currNum
-
     if(FIRST_NUM_END) {
-        currNum = '' + FIRST_NUM + number
-        FIRST_NUM = parseInt(currNum)
+        FIRST_NUM = '' + FIRST_NUM + number
+        currDisplay.innerHTML = FIRST_NUM
     } else {
-        currNum = '' + SECOND_NUM + number
-        SECOND_NUM = parseInt(currNum)
+        SECOND_NUM = '' + SECOND_NUM + number
+        currDisplay.innerHTML = SECOND_NUM
     }
-
-    currDisplay.innerHTML = currNum
 }
 
 function evalSecelection(selection) {
@@ -89,35 +85,28 @@ function currDisplayResults() {
 
     SECOND_NUM = ''
 
-
-    if(FIRST_NUM === null || SECOND_NUM === null) {
-        currDisplay.innerHTML = 'N/A'
-    }
-
     switch(EVAL_SELECTION) {
         case 'add':
-            currDisplay.innerHTML = add(a, b)
-            FIRST_NUM = add(a, b)
-            pastDisplay.innerHTML = FIRST_NUM
+            setDisplay(add(a, b))
             break
         case 'subtract':
-            currDisplay.innerHTML = subtract(a, b)
-            FIRST_NUM = subtract(a, b)
-            pastDisplay.innerHTML = FIRST_NUM
+            setDisplay(subtract(a, b))
             break
         case 'divide':
-            currDisplay.innerHTML = divide(a, b)
-            FIRST_NUM = divide(a, b)
-            pastDisplay.innerHTML = FIRST_NUM
+            setDisplay(divide(a, b))
             break
         case 'multiply':
-            currDisplay.innerHTML = multiply(a, b)
-            FIRST_NUM = multiply(a, b)
-            pastDisplay.innerHTML = FIRST_NUM
+            setDisplay(multiply(a, b))
             break
     }
 
     EVAL_SELECTION = ''
+}
+
+function setDisplay(number) {
+    currDisplay.innerHTML = number
+    FIRST_NUM = number
+    pastDisplay.innerHTML = FIRST_NUM
 }
 
 function clearFunction() {
