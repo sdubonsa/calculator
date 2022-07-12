@@ -9,6 +9,7 @@ const numButtons = document.querySelectorAll('.num-button')
 const evalButtons = document.querySelectorAll('.eval-button')
 const enterButton = document.querySelector('.enter-button')
 const clearButton = document.querySelector('.clear-button')
+const deleteButton = document.querySelector('.delete-button')
 
 const currDisplay = document.querySelector('.curr-display')
 const pastDisplay = document.querySelector('.past-display')
@@ -23,39 +24,24 @@ evalButtons.forEach(button => button.addEventListener('click', () => {
 }))
 
 enterButton.addEventListener('click', currDisplayResults)
-clearButton.addEventListener('click', clear)
+clearButton.addEventListener('click', clearFunction)
+deleteButton.addEventListener('click', deleteFunction)
 
 // FUNCTIONS
-function add() {
-    let result = FIRST_NUM + SECOND_NUM
-    FIRST_NUM = result;
-    SECOND_NUM = ''
-    
-    return result
+function add(a, b) {
+    return a + b
 }
 
-function subtract() {
-    let result = FIRST_NUM - SECOND_NUM
-    FIRST_NUM = result;
-    SECOND_NUM = ''
-
-    return result
+function subtract(a, b) {
+    return a - b
 }
 
-function divide() {
-    let result = FIRST_NUM / SECOND_NUM
-    FIRST_NUM = result;
-    SECOND_NUM = ''
-
-    return result
+function divide(a, b) {
+    return a / b
 }
 
-function multiply() {
-    let result = FIRST_NUM * SECOND_NUM
-    FIRST_NUM = result;
-    SECOND_NUM = ''
-
-    return result
+function multiply(a, b) {
+    return a * b
 }
 
 function setNums(number) {
@@ -98,25 +84,35 @@ function evalSecelection(selection) {
 }
 
 function currDisplayResults() {
+    a = parseInt(FIRST_NUM)
+    b = parseInt(SECOND_NUM)
+
+    SECOND_NUM = ''
+
+
     if(FIRST_NUM === null || SECOND_NUM === null) {
         currDisplay.innerHTML = 'N/A'
     }
 
     switch(EVAL_SELECTION) {
         case 'add':
-            currDisplay.innerHTML = add()
+            currDisplay.innerHTML = add(a, b)
+            FIRST_NUM = add(a, b)
             pastDisplay.innerHTML = FIRST_NUM
             break
         case 'subtract':
-            currDisplay.innerHTML = subtract()
+            currDisplay.innerHTML = subtract(a, b)
+            FIRST_NUM = subtract(a, b)
             pastDisplay.innerHTML = FIRST_NUM
             break
         case 'divide':
-            currDisplay.innerHTML = divide()
+            currDisplay.innerHTML = divide(a, b)
+            FIRST_NUM = divide(a, b)
             pastDisplay.innerHTML = FIRST_NUM
             break
         case 'multiply':
-            currDisplay.innerHTML = multiply()
+            currDisplay.innerHTML = multiply(a, b)
+            FIRST_NUM = multiply(a, b)
             pastDisplay.innerHTML = FIRST_NUM
             break
     }
@@ -124,11 +120,20 @@ function currDisplayResults() {
     EVAL_SELECTION = ''
 }
 
-function clear() {
+function clearFunction() {
     FIRST_NUM_END = true
     EVAL_SELECTION = ''
     FIRST_NUM = ''
     SECOND_NUM = ''
     currDisplay.innerHTML = 0
     pastDisplay.innerHTML = ''
+}
+
+function deleteFunction() {
+    // CHECK WHICH NUM IT IS CURRENTLY ON
+    if(!FIRST_NUM_END) {
+        FIRST_NUM = FIRST_NUM.slice(0, -1)
+    } else {
+        SECOND_NUM = SECOND_NUM.slice(0, -1)
+    }
 }
