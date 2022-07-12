@@ -1,4 +1,9 @@
-# Web Calculator
-A calculator built using HTML, CSS, and JavaScript. 
+# Calculator :iphone:
+A calculator built using JavaScript, HTML, and CSS
 
-[Link to Live Preview](https://sdubonsa.github.io/calculator/)
+### Technologies Used :computer:
+- JavaScript
+- HTML
+- CSS
+
+### [Test it out! :eyes:](https://sdubonsa.github.io/calculator/)
